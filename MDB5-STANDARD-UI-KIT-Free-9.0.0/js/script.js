@@ -6,9 +6,10 @@ async function getData() {
     })
     .then(data => {
       console.log(data.location);
-      document.getElementById("city").innerText = data.location.name + ", " + data.location.region + ", " + data.location.country;
+      document.getElementById("city").innerText = data.location.name + "," + data.location.country;
       document.getElementById("temp").innerText = data.current.temp_c + "°C";
       document.querySelector("strong").innerText = data.current.feelslike_c + "°C";
+      document.getElementById("time").innerText = data.location.localtime.split(" ")[1];
       document.getElementById("feels").innerText = data.current.condition.text;
     })
     .catch(error => {
